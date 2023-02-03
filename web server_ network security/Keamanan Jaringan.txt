@@ -1,0 +1,278 @@
+hendrokuswantoro@DESKTOP-KJ0NKM7:~$  sudo apachectl configtest
+[sudo] password for hendrokuswantoro:
+Syntax OK
+hendrokuswantoro@DESKTOP-KJ0NKM7:~$ sudo apachectl -t
+Syntax OK
+hendrokuswantoro@DESKTOP-KJ0NKM7:~$ sudo -i
+root@DESKTOP-KJ0NKM7:~# sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~# sudo ufw numbered
+Status: inactive
+root@DESKTOP-KJ0NKM7:~# sudo ufw allow 3000/tcp
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+root@DESKTOP-KJ0NKM7:~# sudo ufw status
+Status: inactive
+root@DESKTOP-KJ0NKM7:~#  sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:~# sudo ufw allow 3000/tcp
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+root@DESKTOP-KJ0NKM7:~# sudo ufw reload
+Firewall reloaded
+root@DESKTOP-KJ0NKM7:~#
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~# sudo service apache2 start
+ * Starting Apache httpd web server apache2                                (98)Address already in use: AH00072: make_sock: could not bind to address [::]:3000
+(98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:3000
+no listening sockets available, shutting down
+AH00015: Unable to open logs
+Action 'start' failed.
+The Apache error log may have more information.
+ *
+root@DESKTOP-KJ0NKM7:~# cd /etc/apache2/sites-available/
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# sudo a2enmod proxy
+Module proxy already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# sudo a2enmod proxy_http
+Considering dependency proxy for proxy_http:
+Module proxy already enabled
+Module proxy_http already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# ^C
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# sudo a2enmod proxy_balancer
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# sudo a2enmod lbmethod_byrequests
+Considering dependency proxy_balancer for lbmethod_byrequests:
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+Module lbmethod_byrequests already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:/etc/apache2/sites-available# cd
+root@DESKTOP-KJ0NKM7:~# cd /etc/apache2/
+root@DESKTOP-KJ0NKM7:/etc/apache2# sudo a2enmod proxy
+Module proxy already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2# sudo a2enmod proxy_http
+Considering dependency proxy for proxy_http:
+Module proxy already enabled
+Module proxy_http already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2# sudo a2enmod proxy_balancer
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2# sudo a2enmod lbmethod_byrequests
+Considering dependency proxy_balancer for lbmethod_byrequests:
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+Module lbmethod_byrequests already enabled
+root@DESKTOP-KJ0NKM7:/etc/apache2#  sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:/etc/apache2# cd
+root@DESKTOP-KJ0NKM7:~# sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~# cd a387-jarkom-labs/
+-bash: cd: a387-jarkom-labs/: No such file or directory
+root@DESKTOP-KJ0NKM7:~# sudo service nginx start
+ * Starting nginx nginx                                             [ OK ]
+root@DESKTOP-KJ0NKM7:~# sudo nano /etc/nginx/sites-available/default
+root@DESKTOP-KJ0NKM7:~# cd a387-jarkom-labs/
+-bash: cd: a387-jarkom-labs/: No such file or directory
+root@DESKTOP-KJ0NKM7:~# git clone https://github.com/dicodingacademy/a387-jarkom-labs.git
+Cloning into 'a387-jarkom-labs'...
+remote: Enumerating objects: 406, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 406 (delta 2), reused 4 (delta 0), pack-reused 397
+Receiving objects: 100% (406/406), 568.74 KiB | 2.87 MiB/s, done.
+Resolving deltas: 100% (77/77), done.
+root@DESKTOP-KJ0NKM7:~# cd a387-jarkom-labs/
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano  /etc/apache2/ports.confroot@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo service apache2 star
+Usage: apache2 {start|stop|graceful-stop|restart|reload|force-reload}
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs#
+sudo service apache2 start
+ * Starting Apache httpd web server apache2                                (98)Address already in use: AH00072: make_sock: could not bind to address [::]:3000
+(98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:3000
+no listening sockets available, shutting down
+AH00015: Unable to open logs
+Action 'start' failed.
+The Apache error log may have more information.
+ *
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano  /etc/apache2/ports.confroot@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo service apache2 start
+ * Starting Apache httpd web server apache2                                 *
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm run start
+
+> nodeapp@1.0.0 start
+> node app.js
+
+node:internal/modules/cjs/loader:998
+  throw err;
+  ^
+
+Error: Cannot find module 'express'
+Require stack:
+- /root/a387-jarkom-labs/app.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:995:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:841:27)
+    at Module.require (node:internal/modules/cjs/loader:1067:19)
+    at require (node:internal/modules/cjs/helpers:103:18)
+    at Object.<anonymous> (/root/a387-jarkom-labs/app.js:3:17)
+    at Module._compile (node:internal/modules/cjs/loader:1165:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1219:10)
+    at Module.load (node:internal/modules/cjs/loader:1043:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:878:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/root/a387-jarkom-labs/app.js' ]
+}
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm install express
+
+added 57 packages, and audited 58 packages in 3s
+
+7 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice
+npm notice New major version of npm available! 8.19.3 -> 9.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v9.2.0
+npm notice Run npm install -g npm@9.2.0 to update!
+npm notice
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm run start
+
+> nodeapp@1.0.0 start
+> node app.js
+
+Running on http://0.0.0.0:8000
+^C
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# cat app.js
+'use strict'
+
+const express = require('express')
+
+const PORT = 8000
+const HOST = '0.0.0.0'
+
+const app = express()
+app.get('/', (req, res) => {
+    res.send('Hello world!\n')
+})
+
+app.listen(PORT, HOST)
+console.log(`Running on http://${HOST}:${PORT}`)root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# nano app.js
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm run start
+
+> nodeapp@1.0.0 start
+> node app.js
+
+Running on http://0.0.0.0:8000
+^C
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/nginx/sites-available/default
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo service apache2 start
+ * Starting Apache httpd web server apache2                                 *
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy
+Module proxy already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy_httpConsidering dependency proxy for proxy_http:
+Module proxy already enabled
+Module proxy_http already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo systemctl restart apache2
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy_balancer
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod lbmethod_byrequests
+Considering dependency proxy_balancer for lbmethod_byrequests:
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+Module lbmethod_byrequests already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs#  sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo ufw allow 3000/tcpSkipping adding existing rule
+Skipping adding existing rule (v6)
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-enabled/000-default.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano  /etc/apache2/ports.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm run start
+
+> nodeapp@1.0.0 start
+> node app.js
+
+Running on http://0.0.0.0:8000
+^C
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo touch /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# cd
+root@DESKTOP-KJ0NKM7:~# sudo nano /etc/apache2/sites-available/Apache2Proxy.conf
+root@DESKTOP-KJ0NKM7:~# cd a387-jarkom-labs/
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo service nginx start
+ * Starting nginx nginx                                  [ OK ]
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo service apache2 start
+ * Starting Apache httpd web server apache2                      *
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy
+Module proxy already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy_httpConsidering dependency proxy for proxy_http:
+Module proxy already enabled
+Module proxy_http already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod proxy_balancer
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo a2enmod lbmethod_byrequests
+Considering dependency proxy_balancer for lbmethod_byrequests:
+Considering dependency proxy for proxy_balancer:
+Module proxy already enabled
+Considering dependency alias for proxy_balancer:
+Module alias already enabled
+Considering dependency slotmem_shm for proxy_balancer:
+Module slotmem_shm already enabled
+Module proxy_balancer already enabled
+Module lbmethod_byrequests already enabled
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano /etc/apache2/root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo nano  /etc/apache2/ports.conf
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo ufw allow 3000/tcpSkipping adding existing rule
+Skipping adding existing rule (v6)
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo ufw reload
+Firewall reloaded
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# sudo ufw enable
+Firewall is active and enabled on system startup
+root@DESKTOP-KJ0NKM7:~/a387-jarkom-labs# npm run start
+
+> nodeapp@1.0.0 start
+> node app.js
+
+Running on http://0.0.0.0:8000
